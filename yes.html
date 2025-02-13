@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alla hjärtansdag</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img id="catGif" class="catGifClass" src="assets/tenor_ja1.gif" alt="RoseCat">
+        <h1>Aşkım, jag hämtar dig 19:00😚</h1>
+    </div>
+</body>
+</html>
+
+<script>
+    // Change image after 5 seconds
+    setTimeout(() => {
+        document.getElementById("catGif").src = "assets/tenor_ja2.gif";
+    }, 5000);
+
+    // Function to create falling petals
+    function createPetal() {
+        const petal = document.createElement("div");
+        petal.classList.add("petal");
+
+        // Random start position
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = Math.random() * 3 + 2 + "s"; // Random fall duration
+        petal.style.opacity = Math.random() * 0.5 + 0.5; // Vary transparency for realism
+        petal.style.transform = `rotate(${Math.random() * 360}deg)`; // Random rotation
+
+        document.body.appendChild(petal);
+
+        // Remove petal after animation
+        setTimeout(() => {
+            petal.remove();
+        }, 5000);
+    }
+
+    // Generate more petals (increased rate)
+    setInterval(createPetal, 175);
+</script>
+
+<style>
+    body {
+        background-color: pink;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .container {
+        position: relative;
+        z-index: 10; /* Ensure image stays in front */
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Petals behind the image */
+    .petal {
+        position: absolute;
+        top: 0;
+        width: 15px;
+        height: 20px;
+        background-color: rgba(255, 0, 100, 0.7); /* Rose pink */
+        border-radius: 50% 70% 60% 40%;
+        opacity: 0.8;
+        pointer-events: none;
+        animation: fall linear infinite;
+        z-index: 1; /* Keeps petals behind everything */
+    }
+
+    /* Petal falling animation */
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+</style>
