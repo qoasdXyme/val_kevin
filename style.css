@@ -14,14 +14,16 @@ body {
     background-color: #ffe5e5;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     gap: 20px;
     max-width: 550px;
-    margin: 20px;   
+    margin: 0px auto; /* Center horizontally and remove extra top margin */
+    position: relative;
+    top: -15px; /* Moves everything up */
 }
 
 .container .catGifClass{
