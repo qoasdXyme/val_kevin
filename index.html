@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alla hjärtansdag</title>
 
+        <!-- Preloading images -->
+    <link rel="preload" href="assets/tenor_ja1.gif" as="image">
+    <link rel="preload" href="assets/tenor_ja2.gif" as="image">
+    <link rel="preload" href="assets/tenor_nej1.gif" as="image">
+    <link rel="preload" href="assets/tenor_nej2.gif"  as="image">
+    <link rel="preload" href="assets/tenor_nej3.gif" as="image">
+    <link rel="preload" href="assets/tenor_nej4.gif" as="image">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,5 +24,24 @@
             <a href="no.html">Nej</a>
         </div>
     </div>
+    <script>
+        // Förladdar bilder på andra sidor om du vill att dessa ska vara klara när användaren går till dem
+        window.onload = function() {
+            var preloadImages = [
+                'assets/tenor_ja1.gif',
+                'assets/tenor_ja2.gif',
+                'assets/tenor_nej1.gif',
+                'assets/tenor_nej2.gif',
+                'assets/tenor_nej3.gif',
+                'assets/tenor_nej4.gif'
+                // Lägg till fler bilder här om du vet att de används på andra sidor
+            ];
+
+            preloadImages.forEach(function(src) {
+                var img = new Image();
+                img.src = src;
+            });
+        };
+    </script>
 </body>
 </html>
